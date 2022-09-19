@@ -1,6 +1,7 @@
 import { fetchCast } from "components/services/API"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import s from '../castPage/castPage.module.scss'
 
 
 
@@ -9,7 +10,6 @@ const Cast = () => {
     const {filmId} = useParams()
 
     useEffect(() => {
-        
         fetchCast(filmId)
         .then(setCast)
     }, [filmId])
@@ -21,14 +21,16 @@ const Cast = () => {
     return(
         <>
         <h4>Cast</h4>
-        <ul>
+        <ul className={s.list}>
         {cast.length > 0 && cast.map(hero => {
             const poster = `https://image.tmdb.org/t/p/w500${hero.profile_path}`
             return (
-                <li key={hero.name}>
+                <li key={hero.name} className={s.item}>
                     <img src={poster} alt={hero.name} width="100"/>
-                    <p>{hero.name}</p>
-                    <p>{`character: ${hero.character}`}</p>
+                    <div className={s.textWrapper}>
+                        <p><b>{hero.name}</b></p>
+                        <p>{`character: ${hero.character}`}</p>
+                    </div>
                 </li>
             )
         })}

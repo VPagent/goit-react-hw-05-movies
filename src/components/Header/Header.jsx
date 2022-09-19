@@ -1,14 +1,19 @@
 
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import s from '../Header/header.module.scss'
 
  
 
 const Header = () => {
 
+    const getActiveClassName = ({ isActive }) => {
+        return isActive ? `${s.link} ${s.active}` : s.link;
+    };
+
     return(
         <header>
-         <Link to="/"> Home </Link>
-         <Link to="/movies"> Movies </Link>
+         <NavLink to="/" className={getActiveClassName} end> Home </NavLink>
+         <NavLink to="/movies"className={getActiveClassName}> Movies </NavLink>
         </header>
     )
 }

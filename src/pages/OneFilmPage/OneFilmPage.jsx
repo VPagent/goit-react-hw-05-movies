@@ -7,7 +7,7 @@ import {
   useLocation,
   Link,
 } from 'react-router-dom';
-import s from '../OneFilmPage/oneFilmPage.module.css';
+import s from '../OneFilmPage/oneFilmPage.module.scss';
 
 const OneFilmPage = () => {
   const [currentFilm, setCurrentFilm] = useState({});
@@ -28,12 +28,13 @@ const OneFilmPage = () => {
   const score = Math.floor(vote_average * 10);
   const genresItem = genres ? genres.map(elem => elem.name).join(' ') : '';
   const pathToBack = location.state?.prev || `/`;
+  console.log(pathToBack)
   return (
-    <div>
-      <Link to={pathToBack}> go back </Link>
+    <div className={s.wrapper}>
+      <Link to={pathToBack} className={s.backBtn}> go back </Link>
       <div className={s.filmCard}>
         <img src={poster} alt={title} width="300" />
-        <div>
+        <div className={s.textWrapper}>
           <h2>
             <b>{`${title} (${release_date})`}</b>
           </h2>
@@ -48,10 +49,10 @@ const OneFilmPage = () => {
         <p>
           <b>Additional information</b>
         </p>
-        <NavLink to={`/movies/${filmId}/cast`} end>
+        <NavLink to={`/movies/${filmId}/cast`} end className={s.link}>
           Cast
         </NavLink>
-        <NavLink to={`/movies/${filmId}/reviews`} end>
+        <NavLink to={`/movies/${filmId}/reviews`} end className={s.link}>
           Reviews
         </NavLink>
       </div>

@@ -5,8 +5,9 @@ import ClientRoutes from "components/clientRoutes/ClientRoutes";
 export const App = () => {
   return (
     <div>
-      <Header />
+      <Header/>
       <ClientRoutes />
+      
     </div>
   );
 };

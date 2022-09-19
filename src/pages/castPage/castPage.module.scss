@@ -1,0 +1,21 @@
+
+
+.list{
+    
+    list-style: none;
+}
+.item{
+   
+    display: flex;
+    width: 800px;
+    border-radius: 5px;
+    border: 2px solid gray;
+    background-color: rgb(171, 166, 166);
+    margin-bottom: 10px;
+    text-align: center;
+}
+.textWrapper{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}

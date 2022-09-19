@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import s from '../SearchForm/searchForm.module.scss'
 
 const SearchForm = ({ onSubmitForm }) => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -17,9 +18,9 @@ const SearchForm = ({ onSubmitForm }) => {
     setSearchParams(formValue ? {query: formValue} : "")
   };
   return (
-    <form action="" onSubmit={handleSabmit}>
-      <input type="text" onChange={handleChange} value={formValue} />
-      <button type="submit">Search</button>
+    <form action="" onSubmit={handleSabmit} className={s.form}>
+      <input type="text" onChange={handleChange} value={formValue} className={s.input}/>
+      <button type="submit" className={s.btn}>Search</button>
     </form>
   );
 };
