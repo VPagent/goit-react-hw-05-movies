@@ -1,6 +1,7 @@
 import FilmsList from "components/FilmsList"
 import {fetchTrendFimls} from "components/services/API"
 import { useEffect, useState } from "react"
+import s from '../homePage/homePage.module.scss'
 
 const Home = () => {
     const [films, setFilms] = useState([])
@@ -15,7 +16,7 @@ const Home = () => {
     }
     return(
         <>
-        <h1>Trending today</h1>
+        <h1 className={s.homeTitle}>Trending today</h1>
         <FilmsList options={films} />
         
         </>
