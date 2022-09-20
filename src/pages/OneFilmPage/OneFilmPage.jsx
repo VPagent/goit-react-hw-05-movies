@@ -22,13 +22,11 @@ const OneFilmPage = () => {
   if (!currentFilm) {
     return;
   }
-  const { title, poster_path, genres, overview, vote_average, release_date } =
-    currentFilm;
+  const { title, poster_path, genres, overview, vote_average, release_date } = currentFilm;
   const poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
   const score = Math.floor(vote_average * 10);
   const genresItem = genres ? genres.map(elem => elem.name).join(' ') : '';
   const pathToBack = location.state?.prev || `/`;
-  console.log(pathToBack)
   return (
     <div className={s.wrapper}>
       <Link to={pathToBack} className={s.backBtn}> go back </Link>
@@ -49,10 +47,10 @@ const OneFilmPage = () => {
         <p>
           <b>Additional information</b>
         </p>
-        <NavLink to={`/movies/${filmId}/cast`} end className={s.link}>
+        <NavLink to={`/movies/${filmId}/cast`} end state={location.state}className={s.link}>
           Cast
         </NavLink>
-        <NavLink to={`/movies/${filmId}/reviews`} end className={s.link}>
+        <NavLink to={`/movies/${filmId}/reviews`} end state={location.state} className={s.link}>
           Reviews
         </NavLink>
       </div>
