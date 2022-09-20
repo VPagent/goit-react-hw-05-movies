@@ -26,7 +26,7 @@ const RewiewsPage = () => {
                 <p>{review.content}</p>
                 </li>)} 
             </ul>
-            : <Nothing />
+            : <Nothing text={"reviews"} />
          }
         </>
     )
