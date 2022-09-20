@@ -1,6 +1,8 @@
+import Nothing from 'components/Nothing'
 import { fetchReviews } from 'components/services/API'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import s from '../reviewsPage/reviewsPage.module.scss'
 
 
 const RewiewsPage = () => {
@@ -18,16 +20,15 @@ const RewiewsPage = () => {
     return(
         <>
         {reviews.length > 0 
-            ? <ul>{reviews.map(review => 
-                <li key={review.author}>
+            ? <ul className={s.list}>{reviews.map(review => 
+                <li key={review.author} className={s.item}>
                 <p><b>{`Author: ${review.author}`}</b></p>
                 <p>{review.content}</p>
                 </li>)} 
             </ul>
-            : <div>Nothing</div>
+            : <Nothing />
          }
-         </>
-
+        </>
     )
 }
 

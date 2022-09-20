@@ -7,7 +7,6 @@ const SearchForm = ({ onSubmitForm }) => {
   const query = searchParams.get("query")
   const [formValue, setFormValue] = useState(query || "");
 
-  console.log(query)
   const handleChange = event => {
     setFormValue(event.target.value);
   };

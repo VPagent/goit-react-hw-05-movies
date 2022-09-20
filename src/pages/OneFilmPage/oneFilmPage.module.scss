@@ -42,5 +42,9 @@
         background-color: rgb(206, 202, 202);
         box-shadow: 1px 1px 1px red;
     }
+    &.active{
+        background-color: red;
+        
+   }
 }
 
