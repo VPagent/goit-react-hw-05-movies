@@ -1,6 +1,6 @@
 import { fetchCast } from "components/services/API"
 import { useEffect, useState } from "react"
-import { useLocation, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import s from '../castPage/castPage.module.scss'
 
 
@@ -8,7 +8,7 @@ import s from '../castPage/castPage.module.scss'
 const Cast = () => {
     const [cast, setCast] = useState({})
     const {filmId} = useParams()
-    const location = useLocation()
+    // const location = useLocation()
 
     useEffect(() => {
         fetchCast(filmId)
